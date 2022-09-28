@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>测试报告</title>
+    <title>Test Report</title>
 
        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <script src=" https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
@@ -147,23 +147,23 @@
 
 <!--汇总信息-->
 <div class="summary">
-    <p class="text-left text-success">测试结果汇总</p>
+    <p class="text-left text-success">測試結果匯總</p>
     <div class="left">
         <ul class="list-group">
             <li class="list-group-item">
-                <button type="button" class="btn btn-success">测试人员</button>
+                <button type="button" class="btn btn-success">測試人員</button>
                 <span class="text-dark">{{ tester }}</span>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-success">开始时间</button>
+                <button type="button" class="btn btn-success">開始時間</button>
                 <span class="text-dark">{{ begin_time }}</span>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-success">执行时间</button>
+                <button type="button" class="btn btn-success">執行時間</button>
                 <span class="text-dark">{{ runtime }}</span>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-success">用例总数</button>
+                <button type="button" class="btn btn-success">case總數</button>
                 <span class="text-dark">{{ all }}</span>
             </li>
 
@@ -174,19 +174,19 @@
         <ul class="list-group">
 
             <li class="list-group-item">
-                <button type="button" class="btn btn-success">成功用例</button>
+                <button type="button" class="btn btn-success">成功case</button>
                 <span class="text-success">{{ success }}</span>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-warning">失败用例</button>
+                <button type="button" class="btn btn-warning">失敗case</button>
                 <span class="text-warning">{{ fail }}</span>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-danger">错误用例</button>
+                <button type="button" class="btn btn-danger">錯誤case</button>
                 <span class="text-danger">{{ error }}</span>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-secondary">跳过用例</button>
+                <button type="button" class="btn btn-secondary">跳過case</button>
                 <span class="text-secondary">{{ skip }}</span>
             </li>
         </ul>
@@ -194,7 +194,7 @@
     <div class="desc">
         <ul class="list-group">
             <li class="list-group-item">
-                <button type="button" class="btn btn-success">描述信息</button>
+                <button type="button" class="btn btn-success">描述</button>
                 <span class="text-secondary">{{ desc }}</span>
             </li>
         </ul>
@@ -205,7 +205,7 @@
 
 <!--测试图表-->
 <div class="char">
-    <p class="text-left text-success">图表展示</p>
+    <p class="text-left text-success">圖表</p>
     <div id="char2" style="width: 49%;height: 400px;float: left"></div>
     <div id="char" style="width: 49%;height: 400px ;float: left"></div>
 </div>
@@ -213,15 +213,15 @@
 <!--详细信息-->
 <div class="test_info">
 
-    <p class="text-left text-success">详细信息</p>
+    <p class="text-left text-success">詳細信息</p>
     <div class="table_data">
 
         <table class="table">
             <thead class="bg-success text-light">
             <tr>
-                <th scope="col" style="width: 5%;padding: 0">编号</th>
+                <th scope="col" style="width: 5%;padding: 0">編號</th>
                 <th scope="col" style="width: 20%;padding: 0">
-                    <span>测试类</span>
+                    <span>測試類別</span>
                     <select id="testClass">
                         <option>所有</option>
                         {% for foo in testClass %}
@@ -231,22 +231,22 @@
 
                 </th>
 
-                <th scope="col" style="width: 15%;padding: 0">测试方法</th>
-                <th scope="col" style="width: 20%;padding: 0">用例描述</th>
-                <th scope="col" style="width: 15%;padding: 0">执行时间</th>
+                <th scope="col" style="width: 15%;padding: 0">測試方法</th>
+                <th scope="col" style="width: 20%;padding: 0">case描述</th>
+                <th scope="col" style="width: 15%;padding: 0">執行時間</th>
                 <th scope="col" style="width: 20%;padding: 0">
 
-                    <span>执行结果</span>
+                    <span>執行結果</span>
                     <select id="testResult">
                         <option>所有</option>
                         <option class="text-success">成功</option>
-                        <option class="text-warning">失败</option>
-                        <option class="text-danger">错误</option>
-                        <option class="text-info">跳过</option>
+                        <option class="text-warning">失敗</option>
+                        <option class="text-danger">錯誤</option>
+                        <option class="text-info">跳過</option>
                     </select>
 
                 </th>
-                <th scope="col" style="width: 10%;padding: 0">详细信息</th>
+                <th scope="col" style="width: 10%;padding: 0">log</th>
             </tr>
             </thead>
             <tbody>
@@ -259,15 +259,15 @@
                     <td>{{ foo.run_time }}</td>
                     {% if foo.state == '成功' %}
                         <td class="text-success">{{ foo.state }}</td>
-                    {% elif foo.state == '失败' %}
+                    {% elif foo.state == '失敗' %}
                         <td class="text-warning">{{ foo.state }}</td>
-                    {% elif foo.state == '错误' %}
+                    {% elif foo.state == '錯誤' %}
                         <td class="text-danger">{{ foo.state }}</td>
                     {% else %}
                         <td class="text-info">{{ foo.state }}</td>
                     {% endif %}
                     <td>
-                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                        <button type="button" class="btn btn-success btn_info">log</button>
                     </td>
                 </tr>
 
@@ -279,7 +279,7 @@
                             <pre>{{ item }}</pre>
                         {% endfor %}
                         {% if foo.run_info == [] %}
-                            <pre>无内容输出！</pre>
+                            <pre>無內容輸出!</pre>
                         {% endif %}
                     </td>
                 </tr>
@@ -297,7 +297,7 @@
     var tbodyTr = $('tbody tr');
     var testResult = $("#testResult");
     var testClass = $("#testClass");
-    <!--    用例执行详细信息显示切换-->
+    <!--    用例執行詳細信息顯示切換-->
     $(".btn_info").click(function () {
         $(this).parent().parent().next().toggle();
 
@@ -325,15 +325,15 @@
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-success').show()
 
-            } else if (res === '失败') {
+            } else if (res === '失敗') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-warning').show()
 
-            } else if (res === '错误') {
+            } else if (res === '錯誤') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-danger').show()
 
-            } else if (res === '跳过') {
+            } else if (res === '跳過') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-info').show()
             }
@@ -344,13 +344,13 @@
             } else if (res === '成功') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-success').show()
-            } else if (res === '失败') {
+            } else if (res === '失敗') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-warning').show()
-            } else if (res === '错误') {
+            } else if (res === '錯誤') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-danger').show()
-            } else if (res === '跳过') {
+            } else if (res === '跳過') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-info').show()
             }
@@ -386,11 +386,11 @@
         legend: {
             orient: 'vertical',
             left: 10,
-            data: ['通过', '失败', '错误', '跳过']
+            data: ['通過', '失敗', '錯誤', '跳過']
         },
         series: [
             {
-                name: '测试结果',
+                name: '測試結果',
                 type: 'pie',
                 radius: ['50%', '70%'],
                 avoidLabelOverlap: false,
@@ -409,10 +409,10 @@
                     show: false
                 },
                 data: [
-                    {value: {{success}}, name: '通过'},
-                    {value: {{fail}}, name: '失败'},
-                    {value: {{error}}, name: '错误'},
-                    {value: {{skip}}, name: '跳过'}
+                    {value: {{success}}, name: '通過'},
+                    {value: {{fail}}, name: '失敗'},
+                    {value: {{error}}, name: '錯誤'},
+                    {value: {{skip}}, name: '跳過'}
                 ]
             }
         ]
@@ -429,10 +429,10 @@
         },
         series: [
             {
-                name: '测试结果',
+                name: '測試結果',
                 type: 'gauge',
                 detail: {formatter: '{{pass_rate}}%'},
-                data: [{value: '{{pass_rate}}', name: '用例通过率'}],
+                data: [{value: '{{pass_rate}}', name: 'case通過率'}],
                 axisLine: {
                     lineStyle: {
                         color: [

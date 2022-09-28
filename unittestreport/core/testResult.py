@@ -102,7 +102,7 @@ class TestResult(unittest.TestResult):
     def addSuccess(self, test):
         self.fields["success"] += 1
         test.state = '成功'
-        sys.stdout.write("{}执行——>【通过】\n".format(test))
+        sys.stdout.write("{}執行——>【通過】\n".format(test))
         logs = []
         output = self.complete_output()
         logs.append(output)
@@ -111,8 +111,8 @@ class TestResult(unittest.TestResult):
     def addFailure(self, test, err):
         super().addFailure(test, err)
         logs = []
-        test.state = '失败'
-        sys.stderr.write("{}执行——>【失败】\n".format(test))
+        test.state = '失敗'
+        sys.stderr.write("{}執行——>【失敗】\n".format(test))
         output = self.complete_output()
         logs.append(output)
         logs.extend(traceback.format_exception(*err))
@@ -120,15 +120,15 @@ class TestResult(unittest.TestResult):
 
     def addSkip(self, test, reason):
         super().addSkip(test, reason)
-        test.state = '跳过'
-        sys.stdout.write("{}执行--【跳过Skip】\n".format(test))
+        test.state = '跳過'
+        sys.stdout.write("{}執行--【跳過Skip】\n".format(test))
         logs = [reason]
         test.run_info = logs
 
     def addError(self, test, err):
         super().addError(test, err)
-        test.state = '错误'
-        sys.stderr.write("{}执行——>【错误Error】\n".format(test))
+        test.state = '錯誤'
+        sys.stderr.write("{}執行——>【錯誤Error】\n".format(test))
         logs = []
         logs.extend(traceback.format_exception(*err))
         test.run_info = logs
@@ -167,30 +167,30 @@ class ReRunResult(TestResult):
             test.count = 0
         if test.count < self.count:
             test.count += 1
-            sys.stderr.write("{}执行——>【失败Failure】\n".format(test))
+            sys.stderr.write("{}執行——>【失敗Failure】\n".format(test))
             for string in traceback.format_exception(*err):
                 sys.stderr.write(string)
-            sys.stderr.write("================{}重运行第{}次================\n".format(test, test.count))
+            sys.stderr.write("================{}重新運行第{}次================\n".format(test, test.count))
 
             time.sleep(self.interval)
             test.run(self)
         else:
             super().addFailure(test, err)
             if test.count != 0:
-                sys.stderr.write("================重运行{}次完毕================\n".format(test.count))
+                sys.stderr.write("================重新運行{}次完畢================\n".format(test.count))
 
     def addError(self, test, err):
         if not hasattr(test, 'count'):
             test.count = 0
         if test.count < self.count:
             test.count += 1
-            sys.stderr.write("{}执行——>【错误Error】\n".format(test))
+            sys.stderr.write("{}執行——>【錯誤Error】\n".format(test))
             for string in traceback.format_exception(*err):
                 sys.stderr.write(string)
-            sys.stderr.write("================{}重运行第{}次================\n".format(test, test.count))
+            sys.stderr.write("================{}重新運行第{}次================\n".format(test, test.count))
             time.sleep(self.interval)
             test.run(self)
         else:
             super().addError(test, err)
             if test.count != 0:
-                sys.stderr.write("================重运行{}次完毕================\n".format(test.count))
+                sys.stderr.write("================重新運行{}次完畢================\n".format(test.count))

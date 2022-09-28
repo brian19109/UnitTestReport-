@@ -44,7 +44,7 @@ class SendEmail:
         :type to_addrs: str or list
         :return:
         """
-        print("--------准备发送测试报告---------")
+        print("--------準備發送測試報告---------")
         msg = MIMEMultipart()
         msg["Subject"] = subject
         msg["From"] = self.user
@@ -53,7 +53,7 @@ class SendEmail:
         elif to_addrs and isinstance(to_addrs, list):
             msg["To"] = to_addrs[0]
         if not content:
-            content = time.strftime("%Y-%m-%d-%H_%M_%S") + ":测试报告"
+            content = time.strftime("%Y-%m-%d-%H_%M_%S") + ":測試報告"
         # 构建邮件的文本内容
         text = MIMEText(content, _subtype="html", _charset="utf8")
         msg.attach(text)
@@ -69,7 +69,7 @@ class SendEmail:
         try:
             self.smtp.send_message(msg, from_addr=self.user, to_addrs=to_addrs)
         except Exception as e:
-            print("--------测试报告发送失败------")
+            print("--------測試報告發送失敗------")
             raise e
         else:
-            print("--------测试报告发送完毕------")
+            print("--------測試報告發送完畢------")

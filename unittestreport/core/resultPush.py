@@ -55,7 +55,7 @@ class SendEmail:
         elif to_addrs and isinstance(to_addrs, list):
             msg["To"] = to_addrs[0]
         if not content:
-            content = time.strftime("%Y-%m-%d-%H_%M_%S") + ":测试报告"
+            content = time.strftime("%Y-%m-%d-%H_%M_%S") + ":測試報告"
         text = MIMEText(content, _subtype="html", _charset="utf8")
         msg.attach(text)
         if filename and os.path.isfile(filename):

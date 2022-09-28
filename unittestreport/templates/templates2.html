@@ -205,69 +205,69 @@
     <div class="content-box">
         <div class="box1">
             <div class="panel">
-                <h2>执行结果</h2>
+                <h2>執行结果</h2>
                 <div class="chart" id="char3"></div>
                 <div class="panel-footer"></div>
             </div>
             <div class="panel ">
-                <h2>成功占比</h2>
+                <h2>成功比例</h2>
                 <div class="chart" id="char1"></div>
                 <div class="panel-footer"></div>
             </div>
         </div>
         <div class="box2">
             <div class="panel">
-                <h2>运行信息</h2>
+                <h2>執行信息</h2>
                 <div class="desc">
 
                     <div class="info">
                         <div style="flex:5">
-                            <button type="button" class="btn btn-primary btn-sm">开始时间</button>
+                            <button type="button" class="btn btn-primary btn-sm">開始時間</button>
                             <span>{{ begin_time }}</span>
                         </div>
                         <div style="flex:5">
-                            <button type="button" class="btn btn-primary btn-sm">用例总数</button>
+                            <button type="button" class="btn btn-primary btn-sm">case總數</button>
                             <span>{{ all }}</span>
                         </div>
                     </div>
                     <div class="info">
                         <div style="flex:5">
-                            <button type="button" class="btn btn-primary btn-sm">运行时长</button>
+                            <button type="button" class="btn btn-primary btn-sm">執行時長</button>
                             <span>{{ runtime }}</span>
                         </div>
                         <div style="flex:5">
-                            <button type="button" class="btn btn-primary btn-sm ">测试人员</button>
+                            <button type="button" class="btn btn-primary btn-sm ">測試人員</button>
                             <span>{{ tester }}</span>
                         </div>
                     </div>
                     <div class="info">
                         <div style="flex:5">
-                            <button type="button" class="btn btn-primary btn-sm">成功用例</button>
+                            <button type="button" class="btn btn-primary btn-sm">成功case</button>
                             <span>{{ success }}</span>
                         </div>
                         <div style="flex:5">
-                            <button type="button" class="btn btn-primary btn-sm ">通过率</button>
+                            <button type="button" class="btn btn-primary btn-sm ">通過率</button>
                             <span>{{pass_rate}}%</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="panel">
-                <h2>通过率趋势图</h2>
+                <h2>通過率趨勢圖</h2>
                 <div class="chart2" id="char2"></div>
             </div>
         </div>
         <div class="box3">
             <div class="panel">
-                <h2>历史构建结果</h2>
+                <h2>歷史構建結果</h2>
                 <div class="chart4">
                     <table class="table" style="color: #d6d6d6;padding: 0">
                         <thead>
                         <tr>
-                            <th scope="col">执行时间</th>
-                            <th scope="col">用例总数</th>
-                            <th scope="col">成功用例数</th>
-                            <th scope="col">通过率</th>
+                            <th scope="col">執行時間</th>
+                            <th scope="col">case總數</th>
+                            <th scope="col">成功case數</th>
+                            <th scope="col">通過率</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -289,15 +289,15 @@
     </div>
 
     <div class="test_info">
-        <h2>本次运行详情</h2>
+        <h2>本次運行詳情</h2>
         <div class="table_data">
 
             <table class="table" style="color: #fff">
                 <thead class="text-light" style="background: rgba(3, 14, 70, 0.5)">
                 <tr>
-                    <th scope="col" style="width: 5%;padding: 0">编号</th>
+                    <th scope="col" style="width: 5%;padding: 0">編號</th>
                     <th scope="col" style="width: 20%;padding: 0">
-                        <span>测试类</span>
+                        <span>測試類別</span>
                         <select id="testClass">
                             <option>所有</option>
                             {% for foo in testClass %}
@@ -306,22 +306,22 @@
                         </select>
 
                     </th>
-                    <th scope="col" style="width: 15%;padding: 0">测试方法</th>
-                    <th scope="col" style="width: 20%;padding: 0">用例描述</th>
-                    <th scope="col" style="width: 15%;padding: 0">执行时间</th>
+                    <th scope="col" style="width: 15%;padding: 0">測試方法</th>
+                    <th scope="col" style="width: 20%;padding: 0">case描述</th>
+                    <th scope="col" style="width: 15%;padding: 0">執行時間</th>
                     <th scope="col" style="width: 20%;padding: 0">
 
-                        <span>执行结果</span>
+                        <span>執行結果</span>
                         <select id="testResult">
                             <option>所有</option>
                             <option class="text-success">成功</option>
-                            <option class="text-danger">失败</option>
-                            <option class="text-warning">错误</option>
-                            <option class="text-info">跳过</option>
+                            <option class="text-danger">失敗</option>
+                            <option class="text-warning">錯誤</option>
+                            <option class="text-info">跳過</option>
                         </select>
 
                     </th>
-                    <th scope="col" style="width: 10%;padding: 0">详细信息</th>
+                    <th scope="col" style="width: 10%;padding: 0">詳細log</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -334,15 +334,15 @@
                     <td>{{ foo.run_time }}</td>
                     {% if foo.state == '成功' %}
                     <td class="text-success">{{ foo.state }}</td>
-                    {% elif foo.state == '失败' %}
+                    {% elif foo.state == '失敗' %}
                     <td class="text-warning">{{ foo.state }}</td>
-                    {% elif foo.state == '错误' %}
+                    {% elif foo.state == '錯誤' %}
                     <td class="text-danger">{{ foo.state }}</td>
                     {% else %}
                     <td class="text-info">{{ foo.state }}</td>
                     {% endif %}
                     <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
+                        <button type="button" class="btn btn_info btn-primary btn-sm">查看log</button>
                     </td>
                 </tr>
 
@@ -354,7 +354,7 @@
                             <pre>{{ item }}</pre>
                         {% endfor %}
                         {% if foo.run_info == [] %}
-                            <pre>无内容输出！</pre>
+                            <pre>無内容输出！</pre>
                         {% endif %}
                     </td>
                 </tr>
@@ -414,7 +414,7 @@
                 // 小图标的宽度和高度
                 itemWidth: 10,
                 itemHeight: 10,
-                data: ['通过', '失败', '错误', '跳过'],
+                data: ['通過', '失敗', '錯誤', '跳過'],
                 textStyle: {
                     color: "rgba(255,255,255,.5)",
                     fontSize: "12"
@@ -422,7 +422,7 @@
             },
             series: [
                 {
-                    name: '测试结果',
+                    name: '測試结果',
                     type: 'pie',
                     radius: ['50%', '70%'],
                     avoidLabelOverlap: false,
@@ -442,10 +442,10 @@
                         show: false
                     },
                     data: [
-                        {value: resulte.success, name: '通过'},
-                        {value: resulte.fail, name: '失败'},
-                        {value: resulte.error, name: '错误'},
-                        {value: resulte.skip, name: '跳过'}
+                        {value: resulte.success, name: '通過'},
+                        {value: resulte.fail, name: '失敗'},
+                        {value: resulte.error, name: '錯誤'},
+                        {value: resulte.skip, name: '跳過'}
                     ]
                 }
             ]
@@ -536,7 +536,7 @@
                 }
             }],
             series: [{
-                name: "通过率",
+                name: "通過率",
                 type: "line",
                 smooth: true,
                 symbol: "circle",
@@ -591,7 +591,7 @@
         // 基于准备好的dom，初始化echarts实例
         let myChart = echarts.init(document.getElementById("char3"));
         var data = [resulte.success, resulte.fail, resulte.error, resulte.skip];
-        var titlename = ["通过用例", "失败用例", "错误用例", "跳过用例",];
+        var titlename = ["通過case", "失敗case", "錯誤case", "跳過case",];
         var valdata = [resulte.all, resulte.all, resulte.all, resulte.all];
         var myColor = ['#28a745', '#ffc107', '#dc3545', '#17a2b8'];
         option = {
@@ -669,7 +669,7 @@
                     normal: {
                         show: true,
                         position: "right",
-                        formatter: "{c}条",
+                        formatter: "{c}條",
                         color:"#fff",
 
                     }
@@ -738,15 +738,15 @@
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-success').show()
 
-            } else if (res === '错误') {
+            } else if (res === '錯誤') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-danger').show()
 
-            } else if (res === '失败') {
+            } else if (res === '失敗') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-warning').show()
 
-            } else if (res === '跳过') {
+            } else if (res === '跳過') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.text-info').show()
             }
@@ -757,13 +757,13 @@
             } else if (res === '成功') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-success').show()
-            } else if (res === '错误') {
+            } else if (res === '錯誤') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-danger').show()
-            } else if (res === '失败') {
+            } else if (res === '失敗') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-warning').show()
-            } else if (res === '跳过') {
+            } else if (res === '跳過') {
                 tbodyTr.hide();
                 tbodyTr.has('button').has('.' + cls + '').has('.text-info').show()
             }

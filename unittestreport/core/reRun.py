@@ -17,12 +17,12 @@ def run_count(count, interval, func, *args, **kwargs):
         try:
             func(*args, **kwargs)
         except Exception as e:
-            print("====用例执行失败===")
+            print("====case執行失敗===")
             traceback.print_exc()
             if i + 1 == count:
                 raise e
             else:
-                print("==============开始第{}次重运行=============".format(i))
+                print("==============開始第{}次重新運行=============".format(i))
                 time.sleep(interval)
         else:
             break

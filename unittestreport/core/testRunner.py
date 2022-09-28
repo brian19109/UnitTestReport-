@@ -26,8 +26,8 @@ class TestRunner():
     def __init__(self, suite: unittest.TestSuite,
                  filename="report.html",
                  report_dir="./reports",
-                 title='测试报告',
-                 tester='测试员',
+                 title='測試報告',
+                 tester='測試人員',
                  desc="XX项目测试生成的报告",
                  templates=1
                  ):
@@ -70,7 +70,7 @@ class TestRunner():
         return suites_list
 
     def __get_reports(self):
-        print("所有用例执行完毕，正在生成测试报告中......")
+        print("所有case執行完畢，正在生成測試報告中......")
         test_result = {
             "success": 0,
             "all": 0,
@@ -113,7 +113,7 @@ class TestRunner():
         res = template.render(test_result)
         with open(file_path, 'wb') as f:
             f.write(res.encode('utf8'))
-        print("测试报告已经生成，报告路径为:{}".format(file_path))
+        print("測試報告已經生成，報告路徑為:{}".format(file_path))
         self.email_conent = {"file": os.path.abspath(file_path),
                              "content": env.get_template('templates03.html').render(test_result)
                              }
@@ -219,12 +219,12 @@ class TestRunner():
             for texts in i.failures:
                 t, content = texts
                 num += 1
-                except_info.append("*{}、用例【{}】执行失败*，\n失败信息如下：".format(num, t._testMethodDoc))
+                except_info.append("*{}、用例【{}】執行失敗*，\n失敗信息如下：".format(num, t._testMethodDoc))
                 except_info.append(content)
             for texts in i.errors:
                 num += 1
                 t, content = texts
-                except_info.append("*{}、用例【{}】执行错误*，\n错误信息如下：".format(num, t._testMethodDoc))
+                except_info.append("*{}、用例【{}】執行錯誤*，\n錯誤信息如下：".format(num, t._testMethodDoc))
                 except_info.append(content)
         except_str = "\n".join(except_info)
         return except_str
@@ -242,7 +242,7 @@ class TestRunner():
 
         res_text = self.__get_notice_content()
         if except_info:
-            res_text += '\n ### 未通过用例详情：\n'
+            res_text += '\n ### 未通過用例詳情：\n'
             res_text += self.get_except_info()
         data = {
             "msgtype": "markdown",
